@@ -2,12 +2,20 @@ package com.phani.learnSpring.firstSpring.todoModel;
 
 import java.util.Date;
 
+import javax.validation.constraints.Size;
+
 public class Todo {
 	private int id;
 	private String user;
+	@Size(min=10, message="Message should be atleast 10 characters")
 	private String desc;
 	private Date date;
 	private boolean isDone;
+	
+	public Todo()
+	{
+		super();
+	}
 	
 	public Todo(int id, String user, String desc, Date date, boolean isDone) {
 		super();

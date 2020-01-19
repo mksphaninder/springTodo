@@ -14,10 +14,10 @@ public class TodoService {
 	private static int todoCount = 4;
 	
 	static {
-		todos.add(new Todo(1, "Krishna", "Learn Spring", new Date(), false));
-		todos.add(new Todo(2, "Krishna", "Learn Java", new Date(), false));
-		todos.add(new Todo(3, "Krishna", "Learn Docker", new Date(), false));
-		todos.add(new Todo(4, "Krishna", "Learn AWS", new Date(), false));
+		todos.add(new Todo(1, "krishna", "Learn Spring", new Date(), false));
+		todos.add(new Todo(2, "krishna", "Learn Java", new Date(), false));
+		todos.add(new Todo(3, "krishna", "Learn Docker", new Date(), false));
+		todos.add(new Todo(4, "krishna", "Learn AWS", new Date(), false));
 	}
 	
 	public List<Todo> retreiveTodos(String user) {
@@ -37,7 +37,8 @@ public class TodoService {
 		todos.add(new Todo(todoCount + 1, user, desc, date, isDone));
 	}
 	
-	public void deleteTodo(int id) {
+	public void deleteTodo(int id) 
+	{
 		for(Todo t : todos)
 		{
 			if(t.getId() == id)
@@ -47,4 +48,29 @@ public class TodoService {
 			}
 		}
 	}
+	
+	public Todo retreiveTodoById(int id) 
+	{
+		for(Todo todo : todos)
+		{
+			if(todo.getId() ==id) 
+			{
+				return todo;
+			}
+		}
+		return null;
+	}
+	
+	public void updateTodo(Todo todo) 
+	{
+		for(Todo t : todos)
+		{
+			if(t.getId() == todo.getId())
+			{
+				t.setDesc(todo.getDesc());
+				t.setDate(todo.getDate());
+			}
+		}
+	}
+		
 }
